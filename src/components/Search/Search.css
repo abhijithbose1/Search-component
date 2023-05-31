@@ -1,0 +1,17 @@
+.search-main-container{
+    width: 500px;
+    min-width: 300px;
+    padding: 10px;
+}
+.search-heading-container{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+.search-heading-container img{
+    filter: invert(1);
+}
+.search-heading-container h1{
+    padding-left: 10px;
+    color: white;
+}
