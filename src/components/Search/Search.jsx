@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useState } from "react";
+import { useEffect } from "react";
 import { SearchInput } from "../SearchInput/SearchInput";
 import { SearchList } from "../SearchList/SearchList";
 import "./Search.css";
@@ -14,7 +15,6 @@ export const Search = () => {
 
     const handleChange = (event) => {
         setSearchInputValue(event.target.value);
-        fetchMovieList(searchInputValue);
     };
 
     const clearSearch = () => {
@@ -23,16 +23,27 @@ export const Search = () => {
         console.log("Search Cleared");
     };
 
-    const fetchMovieList = async (query) => {
+    const fetchMovieList = async () => {
         const response = await axios(API_URL, {
             params: {
-                query: query,
+                query: searchInputValue,
             },
         });
         setSearchList(response.data.results);
     };
-    
-    console.log(searchList);
+
+    //debouncing
+    useEffect(() => {
+        const timeOut = setTimeout(() => {
+            fetchMovieList();
+        }, 500);
+
+        return () => {
+            clearTimeout(timeOut);
+        };
+    }, [searchInputValue]);
+
+    // console.log(searchList);
 
     return (
         <div className="search-main-container">
