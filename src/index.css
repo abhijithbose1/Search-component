@@ -1,0 +1,20 @@
+:root{
+    font-family: Helvetica, sans-serif;
+}
+*{
+    padding: 0;
+    margin: 0;
+}
+.app-container{
+    background: #000;
+    background: url(./assets/image.jpg);
+    /* background-repeat: repeat; */
+    background-size: 100vh;
+    width: 100vw;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    min-height: 92vh;
+    /* position: absolute; */
+}
