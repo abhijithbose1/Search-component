@@ -43,6 +43,7 @@ export const Search = () => {
         };
     }, [searchInputValue]);
 
+    
     // console.log(searchList);
 
     return (
